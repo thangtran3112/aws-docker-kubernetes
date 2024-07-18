@@ -1,6 +1,7 @@
 # Containing your app with Docker:
 
 - Video Tutorial: [Docker with AWS Fargate](https://www.youtube.com/watch?v=VDhqQl-F5Gc&list=PL5dAXcy9iz3SEd3vEute8QdNYDeLLAxKJ)
+- ALB Load Balancer with Fargate tasks: [AWS ALB with Fargate](https://youtu.be/rUgZNXKbsrY?si=wmxOqEGXc-Mall6O)
 
 ```bash
 cd book-service
@@ -15,7 +16,7 @@ aws ecr create-repository --repository-name express-book-app
 ```
 
 - After creating the repository, you can push the image to the repository.
-  ![ECR View Push Command](../ECRViewPushCommand.png)
+  ![ECR View Push Command](./ECRViewPushCommand.png)
 
 ```bash
 aws ecr get-login-password --region us-west-2 | docker login --username AWS --password-stdin 654654352356.dkr.ecr.us-west-2.amazonaws.com
