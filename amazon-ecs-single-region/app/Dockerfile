@@ -1,11 +1,13 @@
-FROM python:3.9-alpine
+FROM --platform=linux/amd64 node:lts-alpine
 
-RUN adduser -D dev
-USER dev
 WORKDIR /app
 
-COPY --chown=dev:dev requirements.txt requirements.txt
-RUN pip install --user -r requirements.txt
-COPY --chown=dev:dev . .
+COPY package.json package-lock.json ./
 
-CMD [ "python", "-m" , "flask", "run", "--host=0.0.0.0"]
+RUN npm install
+
+COPY . .
+
+EXPOSE 5000
+
+CMD ["npm", "start"]
