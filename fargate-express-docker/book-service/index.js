@@ -52,6 +52,10 @@ app.get("/", (req, res) => {
   res.send("Welcome to Edureka's AWS Bookstore!");
 });
 
+app.get("/healthcheck", (req, res) => {
+  res.send({ health: "ok" });
+});
+
 app.get("/api/books/health", (req, res) => {
   console.log("=== GET request  at /api/books/healthcheck ===");
   res.sendFile("./healthcheck.html", { root: __dirname });
