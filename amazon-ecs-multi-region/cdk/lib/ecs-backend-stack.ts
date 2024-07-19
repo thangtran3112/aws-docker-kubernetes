@@ -26,7 +26,7 @@ export class EcsBackendStack extends Stack {
     const table = dynamodb.Table.fromTableName(
       this,
       "dynamodb-table",
-      props.tableName,
+      props.tableName
     );
 
     const cluster = new ecs.Cluster(this, "cluster", {
@@ -47,7 +47,7 @@ export class EcsBackendStack extends Stack {
           "dynamodb:DeleteItem",
         ],
         resources: [table.tableArn],
-      }),
+      })
     );
 
     // Service
@@ -75,15 +75,15 @@ export class EcsBackendStack extends Stack {
           environment: {
             DYNAMODB_TABLE_NAME: props.tableName,
           },
-          containerPort: 5000,
+          containerPort: 3000, //use 5000 for Flask API
         },
-      },
+      }
     );
 
     //Target group/Health check
     this.apiService.targetGroup.setAttribute(
       "deregistration_delay.timeout_seconds",
-      "5",
+      "5"
     );
     this.apiService.targetGroup.configureHealthCheck({
       path: "/healthcheck",

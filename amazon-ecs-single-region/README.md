@@ -15,8 +15,8 @@ The `cdk` folder contains the infrastructure code that deploys this application 
 
 The repository contains two main branches that can be used:
 
-* feature/single_region: Used to deploy the application to a single AWS region.
-* main: Used to deploy the application to two AWS regions.
+- feature/single_region: Used to deploy the application to a single AWS region.
+- main: Used to deploy the application to two AWS regions.
 
 ## Deploying to AWS
 
@@ -34,13 +34,13 @@ cd cdk
 
 3. Install NPM packages:
 
-```bash
-npm install
-```
+- [Set the correct `aws account` and `region`](./bin/ecs-single-region-workshop.ts)
 
 4. Deploy the foundation stack:
 
 ```bash
+cd cdk
+npm install
 cdk deploy workshop-foundation-main
 ```
 

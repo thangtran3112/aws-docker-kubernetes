@@ -16,8 +16,8 @@ The `cdk` folder contains the infrastructure code that deploys this application 
 
 The repository contains two main branches that can be used:
 
-* feature/single_region: Used to deploy the application to a single AWS region.
-* main: Used to deploy the application to two AWS regions.
+- feature/single_region: Used to deploy the application to a single AWS region.
+- main: Used to deploy the application to two AWS regions.
 
 ## Deploying to AWS
 
@@ -25,27 +25,21 @@ In this section we will explain how to deploy the application to 2 different reg
 
 ### Bootstrapping CDK
 
-1. Navigate to the CDK folder:
+1. Set the correct `aws account` and `region`:
 
-```bash
-cd cdk
-```
+- [Set the correct `aws account` and `region`](./bin/ecs-multi-region-workshop.ts)
 
-2. Install NPM packages:
-
-```bash
-npm install
-```
-
-3. Make sure that the AWS CLI uses the main region:
+2. Make sure that the AWS CLI uses the main region:
 
 ```bash
 aws configure set region <your main region of choice (e.g. us-east-1)>
 ```
 
-4. Bootstrap the AWS main region:
+3. Bootstrap the AWS main region:
 
 ```bash
+cd cdk
+npm install
 cdk bootstrap
 ```
 
@@ -104,7 +98,6 @@ cdk deploy workshop-backend-secondary --require-approval never
 
 Before we can deploy the routing stack, we will need to export the secondary region's load balancer ARN as an environment variable. The environment variable will be referenced by the CDK code.
 
-
 ```bash
 export WORKSHOP_SECONDARY_ALB_ARN=$(aws elbv2 describe-load-balancers --names "workshop-alb" --query "LoadBalancers[0].LoadBalancerArn" --output text --region $WORKSHOP_SECONDARY_REGION)
 ```
@@ -117,6 +110,6 @@ cdk deploy workshop-routing --require-approval never
 
 ### Test out the API
 
-* Navigate to Global Accelerators console
-* From left navigation select "Accelerators", and click on workshop-accelerator.
-* Copy the DNS name, then paste it in a new browser tab. Append `/healthcheck` to the URL. You should be able to see a JSON response for the health check.
+- Navigate to Global Accelerators console
+- From left navigation select "Accelerators", and click on workshop-accelerator.
+- Copy the DNS name, then paste it in a new browser tab. Append `/healthcheck` to the URL. You should be able to see a JSON response for the health check.
