@@ -1,0 +1,14 @@
+{
+  "folders": [
+    {
+      "path": "amazon-ecs-multi-region"
+    },
+    {
+      "path": "amazon-ecs-single-region"
+    },
+    {
+      "path": "fargate-express-docker"
+    }
+  ],
+  "settings": {}
+}

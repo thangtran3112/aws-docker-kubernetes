@@ -128,3 +128,8 @@ dist
 .yarn/build-state.yml
 .yarn/install-state.gz
 .pnp.*
+amazon-ecs-single-region/.DS_Store
+amazon-ecs-multi-region/.DS_Store
+amazon-ecs-multi-region/cdk/.DS_Store
+amazon-ecs-single-region/app/.DS_Store
+.DS_Store

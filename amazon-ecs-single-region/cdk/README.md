@@ -1,13 +1,63 @@
-# Welcome to your CDK TypeScript project!
+# ECS Multi-Region Workshop
 
-This is a blank project for TypeScript development with CDK.
+This repository contains the code for the ECS Multi-region workshop.
 
-The `cdk.json` file tells the CDK Toolkit how to execute your app.
+The `app` folder contains a Python Flask application for books API that uses DynamoDB as the data store.
 
-## Useful commands
+The `cdk` folder contains the infrastructure code that deploys this application to Amazon Elastic Container Service (Amazon ECS).
 
- * `npm run build`   compile typescript to js
- * `npm run watch`   watch for changes and compile
- * `cdk deploy`      deploy this stack to your default AWS account/region
- * `cdk diff`        compare deployed stack with current state
- * `cdk synth`       emits the synthesized CloudFormation template
+## Prerequisites
+
+1. [AWS CDK](https://docs.aws.amazon.com/cdk/v2/guide/getting_started.html#getting_started_install)
+2. [Docker](https://docs.docker.com/get-docker/)
+
+## Branches
+
+The repository contains two main branches that can be used:
+
+- feature/single_region: Used to deploy the application to a single AWS region.
+- main: Used to deploy the application to two AWS regions.
+
+## Deploying to AWS
+
+1. Make sure that the AWS CLI uses the intended region:
+
+```bash
+aws configure set region <your main region of choice (e.g. us-east-1)>
+```
+
+2. Navigate to the CDK folder:
+
+```bash
+cd cdk
+```
+
+3. Install NPM packages:
+
+- [Set the correct `aws account` and `region`](./bin/ecs-single-region-workshop.ts)
+
+4. Deploy the foundation stack:
+
+```bash
+cd cdk
+npm install
+cdk deploy workshop-foundation-main
+```
+
+5. Deploy the data stack:
+
+```bash
+cdk deploy workshop-data
+```
+
+6. Deploy the backend stack (requires Docker to be installed and running):
+
+```bash
+cdk deploy workshop-backend-main --require-approval never
+```
+
+7. Deploy the routing stack:
+
+```bash
+cdk deploy workshop-routing --require-approval never
+```
