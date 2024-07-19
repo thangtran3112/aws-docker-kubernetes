@@ -1,6 +1,7 @@
 # Containing your app with Docker:
 
 - Video Tutorial: [Docker with AWS Fargate](https://www.youtube.com/watch?v=VDhqQl-F5Gc&list=PL5dAXcy9iz3SEd3vEute8QdNYDeLLAxKJ)
+- ELB with Fargate Task/Service: [AWS ELB with Fargate](https://www.youtube.com/watch?v=CQrtouRfcT8)
 - ALB Load Balancer with Fargate tasks: [AWS ALB with Fargate](https://youtu.be/rUgZNXKbsrY?si=wmxOqEGXc-Mall6O)
 
 ```bash
