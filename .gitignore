@@ -133,3 +133,4 @@ amazon-ecs-multi-region/.DS_Store
 amazon-ecs-multi-region/cdk/.DS_Store
 amazon-ecs-single-region/app/.DS_Store
 .DS_Store
+/ecs/ecs-service-with-advanced-alb-config/cdk.out
