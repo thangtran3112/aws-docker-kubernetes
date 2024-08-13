@@ -102,3 +102,10 @@ docker build -t second:v2 .
 ```bash
 docker run -p 3000:80 -d --rm --name secondapp <ImageId>
 ```
+
+## Networking between containers
+
+```
+docker network create mynetwork
+docker run -d --name mymongo --network mynetwork mongo
+```
