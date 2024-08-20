@@ -8,6 +8,15 @@
     },
     {
       "path": "fargate-express-docker"
+    },
+    {
+      "path": "docker-guides"
+    },
+    {
+      "path": "ecs"
+    },
+    {
+      "path": "kubernetes-guides"
     }
   ],
   "settings": {}
