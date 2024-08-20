@@ -62,3 +62,27 @@
   docker push thangtran3112/kub-first-app:2
   kubectl set image deployment/first-app kub-first-app=thangtran3112/kub-first-app:2
 ```
+
+## Rollback and History
+
+- For example, change the image to an unknown version, such as: `kubectl set image deployment/first-app kub-first-app=thangtran3112/kub-first-app:3`
+
+```bash
+  kubectl rollout status deployment/first-app
+  kubectl rollout undo deployment/first-app
+  kubectl rollout history deployment/first-app
+  kubectl rollout history deployment/first-app --revision=3
+```
+
+- Undo to a specific `--revision`:
+
+```bash
+  kubectl rollout undo deployment/first-app --revision=1
+```
+
+- Delete:
+
+```bash
+  kubectl delete service first-app
+  kubectl delete deployment first-app
+```
