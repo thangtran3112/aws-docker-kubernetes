@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: backend
+spec:
+  selector:
+    # All pods with `app` label will be selected, even if they have `tier` label or not
+    # The pods created by `deployment.yaml` will be selected to be exposed
+    # similar to `kubectl expose deployment first-app --type=LoadBalancer --port=8080`
+    app: second-app
+  ports:
+    - protocol: "TCP"
+      port: 80
+      targetPort: 8080
+    # - protocol: 'TCP'
+    #   port: 443
+    #   targetPort: 443
+  type: LoadBalancer
