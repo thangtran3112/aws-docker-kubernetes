@@ -9,9 +9,17 @@
   kubectl apply -f=deployment.yaml
 ```
 
+- Change of deployment.yaml, we can just re-apply the command. For instance: changed DockerHub image
+
 ## [Service yaml with Kubernetes](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.26/#service-v1-core)
 
 ```bash
   kubectl apply -f=service.yaml
   minikube service backend
+```
+
+## Delete
+
+```bash
+  kubectl delete -f=deployment.yaml -f=service.yaml
 ```
