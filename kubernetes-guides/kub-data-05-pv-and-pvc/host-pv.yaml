@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: host-pv
+spec:
+  # For perisistent volume, we need to specify the capacity, even for hostpath with a single node
+  # The pod can claim a portion of capacity from the PV when they need
+  capacity:
+    storage: 1Gi
+  volumeMode: Filesystem
+  storageClassName: standard
+  accessModes:
+    - ReadWriteOnce
+    # - ReadWriteMany can be claimed by multiple pods, but not applicable for hostpath single-node volume anyway
+    # - ReadOnlyMany can only be claimed by one pod, but not applicable for hostpath single-node volume anyway
+  hostPath:
+    path: /data
+    type: DirectoryOrCreate
