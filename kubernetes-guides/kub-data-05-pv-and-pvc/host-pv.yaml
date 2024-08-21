@@ -8,6 +8,7 @@ spec:
   capacity:
     storage: 1Gi
   volumeMode: Filesystem
+  # For hostpath, we need to specify the storage class name `kubectl get sc`
   storageClassName: standard
   accessModes:
     - ReadWriteOnce
