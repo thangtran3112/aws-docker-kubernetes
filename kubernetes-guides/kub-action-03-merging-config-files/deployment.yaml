@@ -20,7 +20,7 @@ spec:
     spec:
       containers:
         - name: second-node
-          image: academind/kub-first-app:2
+          image: thangtran3112/kub-first-app:2
           # Health check with: https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.26/#probe-v1-core
           livenessProbe:
             httpGet:
