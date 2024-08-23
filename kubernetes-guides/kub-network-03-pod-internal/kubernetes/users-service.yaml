@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: users-service
+spec:
+  selector:
+    app: users
+  type: LoadBalancer
+  ports:
+    - protocol: TCP
+      port: 8080 # exposed port for users service only
+      targetPort: 8080 # port on the pod for users service. We do not expose auth service (port 80) on pod
