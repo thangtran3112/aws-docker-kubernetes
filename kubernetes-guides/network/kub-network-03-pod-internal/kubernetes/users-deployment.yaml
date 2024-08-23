@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: users-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: users
+  template:
+    metadata:
+      labels:
+        app: users
+    spec:
+      containers:
+        - name: users
+          image: thangtran3112/kub-demo-users:latest
+          env:
+            - name: AUTH_ADDRESS
+              value: localhost # similar to ECS task, services are always in the same machine localhost
+        - name: auth
+          image: thangtran3112/kub-demo-auth:latest

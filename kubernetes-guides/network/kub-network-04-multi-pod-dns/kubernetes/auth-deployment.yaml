@@ -1,22 +1,17 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: users-deployment
+  name: auth-deployment
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: users
+      app: auth
   template:
     metadata:
       labels:
-        app: users
+        app: auth
     spec:
       containers:
-        - name: users
-          image: thangtran3112/kub-demo-users:latest
-          env:
-            - name: AUTH_ADDRESS
-              value: localhost
         - name: auth
           image: thangtran3112/kub-demo-auth:latest
